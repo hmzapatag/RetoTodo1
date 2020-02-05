@@ -1,0 +1,9 @@
+package com.example.demo.service;
+
+import com.example.demo.model.Producto;
+
+public interface IProductoService {
+
+	public Producto crearProducto(Producto producto);
+	
+}

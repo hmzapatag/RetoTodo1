@@ -1,0 +1,27 @@
+package com.example.demo.api;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.api.data.Request;
+import com.example.demo.api.data.Response;
+import com.example.demo.service.IProductoService;
+
+@RestController(value = "/api/producto")
+public class RestProducto {
+
+	@Autowired
+	private IProductoService iProductoService;
+	
+	@PostMapping
+	public Response crearProducto(@RequestBody Request request) {
+		Response response = new Response();
+		response.setProducto(iProductoService.crearProducto(request.getProducto()));
+		response.setMensage("Transaccion Exitosa");
+		return response;
+	}
+	
+	
+}
